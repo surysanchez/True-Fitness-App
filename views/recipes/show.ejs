@@ -1,0 +1,101 @@
+<%- include('../partials/header') %>
+
+<section id="detail-page">
+    <img class="food-pic" src="https://hips.hearstapps.com/hmg-prod/images/cilantro-lime-shrimp-lettuce-wraps1-1657203475.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=1200:*" >
+    <div>Ingredients:</div>
+    <div><%=recipe.ingredients %> </div>
+    <table>
+    <ul>
+        <li>1 lb. medium shrimp, peeled and deveined</li>
+        <li>2 tsp ground commin</li>
+        <li>Juice of 1 lime</li>
+        <li>2 cloves garlic, minced </li>
+        <li>3 tbsp. extra-virgin olive oil, divided</li>
+        <li>Kosher salt </li>
+        <li>Freshly ground black pepper</li>
+        <li>Romaine lettuce, for serving</li>
+        <li>1 avocado, thinly sliced </li>
+        <li>1/4 c. Sour cream, for serving</li>
+      
+    </ul>
+</table>
+<div>Instructions:</div>
+<div><%= recipe.instructions %></div>
+<p>Step 1
+    <li>In a large bowl, stir together shrimp, cumin, lime juice, cilantro, garlic, and 2 tablespoons oil and season with salt and pepper. Toss until combined, then let marinate in the fridge 10 minutes.</li>
+    <br>
+    Step 2
+    <li>In a large skillet over medium heat, heat remaining tablespoon oil. Add shrimp and marinade cook until pink, 2 minutes per side.</li>
+    <br>
+    Step 3
+    <li>Assemble wraps: Add shrimp and avocado to lettuce, drizzle with sour cream, and garnish with cilantro. </li>
+    </p>
+    <br>
+    <h3>Reviews</h3>
+    <form id="add-review" method="POST"   action="/recipes/<%= recipe._id %>/reviews">
+        <label>Review:</label>
+        <textarea name="content" ></textarea>
+        <label>Rating:</label>
+        <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <input type="submit" value="Add Review" >
+    </form>
+    <% if (recipe.reviews.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Date</th>
+              <th>Review</th>
+              <th>Rating</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let total = 0 %>
+            <% recipe.reviews.forEach(function(r) { %>
+              <% total += r.rating %>
+              <tr>
+                <tbody>
+                    <% let total = 0 %>
+                    <% movie.reviews.forEach(function(r) { %>
+                      <% total += r.rating %>
+                      <tr>
+                        <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+                        <td><%= r.createdAt.toLocaleDateString() %></td>
+                        <td><%= r.content %></td>
+                        <td><%= r.rating %></td>
+                        <td>
+                            <% if (user?._id.equals(r.user)) { %>
+                                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                                  <button type="submit">X</button>
+                                </form>
+                              <% } %>
+                            </td>
+                          </tr>
+                        <% }); %>
+                        <tr>
+                          <td colspan="3"></td>
+                          <td><strong><%= (total / movie.reviews.length).toFixed(1) %></strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  <% } else { %>
+                    <h5>No Reviews Yet</h5>
+                  <% } %>
+    
+</section>
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

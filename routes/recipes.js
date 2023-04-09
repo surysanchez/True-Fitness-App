@@ -9,6 +9,12 @@ router.get('/', recipesCtrl.index);
 // GET / recipes/:id
 router.get('/:id', recipesCtrl.show);
 
+// // POST /recipes
+// router.post('/', recipesCtrl.create);
+
+// //GET /recipes/new
+// router.get('/new', recipesCtrl.new);
+
 
 
 

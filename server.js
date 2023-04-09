@@ -14,6 +14,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var recipesRouter = require('./routes/recipes');
 var reviewsRouter = require('./routes/reviews');
+var workoutsRouter = require('./routes/workouts')
 
 var app = express();
 

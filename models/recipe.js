@@ -12,6 +12,11 @@ const reviewsSchema = new Schema ({
         max:5,
         default: 5
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+
+    },
     userName: String,
     userAvatar: String
 

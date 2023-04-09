@@ -1,10 +1,8 @@
 <%- include('../partials/header') %>
 
 <section id="detail-page">
-    <img class="food-pic" src="https://hips.hearstapps.com/hmg-prod/images/cilantro-lime-shrimp-lettuce-wraps1-1657203475.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=1200:*" >
     <div>Ingredients:</div>
     <div><%=recipe.ingredients %> </div>
-    <table>
     <ul>
         <li>1 lb. medium shrimp, peeled and deveined</li>
         <li>2 tsp ground commin</li>
@@ -16,27 +14,22 @@
         <li>Romaine lettuce, for serving</li>
         <li>1 avocado, thinly sliced </li>
         <li>1/4 c. Sour cream, for serving</li>
-      
     </ul>
-</section>
-</table>
+    <img class="food-pic" src="https://hips.hearstapps.com/hmg-prod/images/cilantro-lime-shrimp-lettuce-wraps1-1657203475.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=1200:*" >
 <div>Instructions:</div>
 <div><%= recipe.instructions %></div>
 <p>Step 1
     <li>In a large bowl, stir together shrimp, cumin, lime juice, cilantro, garlic, and 2 tablespoons oil and season with salt and pepper. Toss until combined, then let marinate in the fridge 10 minutes.</li>
-    <br>
     Step 2
     <li>In a large skillet over medium heat, heat remaining tablespoon oil. Add shrimp and marinade cook until pink, 2 minutes per side.</li>
-    <br>
     Step 3
     <li>Assemble wraps: Add shrimp and avocado to lettuce, drizzle with sour cream, and garnish with cilantro. </li>
     </p>
-    <br>
-    <h3>Reviews</h3>
+
     <form id="add-review" method="POST" action="/recipes/<%= recipe._id %>/reviews">
-        <label>Review:</label>
+        <div>Review:</div>
         <textarea name="content" ></textarea>
-        <label>Rating:</label>
+       <div>Rating:</div>
         <select name="rating">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -45,8 +38,8 @@
         <option value="5">5</option>
     </select>
     <input type="submit" value="Add Review" >
-    </form>
 
+    <div>Reviews</div>
     <% if (recipe.reviews.length) { %>
         <table>
             <thead>
@@ -70,7 +63,7 @@
           <td>
           <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
             <button type="submit">X</button>
-        </form>
+          </form>
                    </td>
                     </tr>
                <% }); %>
@@ -84,6 +77,8 @@
             <h5>No Reviews Yet</h5>
 
     <% } %>
+</form>
+</section>
     
 
 <%- include('../partials/footer') %>

@@ -1,7 +1,7 @@
 <%- include('../partials/header')%>
 
 <table id="list">
-    <h1>Nutrition</h1>
+    <h1>RECIPES</h1>
     <thead>
     <tr>
         <th>Name</th>
@@ -16,7 +16,23 @@
         <td><a href="/recipes/<%= r._id%>">Details</a></td>
       </tr>
    <% }); %>
+
+  
+   <!-- <a href="/recipes/new">ADD NEW RECIPE</a> -->
 </tbody>
 </table>
+
+<!-- <form id="new-recipe" action="/recipes" method="POST">
+    <div>Name</div>
+    <input type="text" name="name">
+    <div>Time Cooking</div>
+    <input type="number" name="timeCooking">
+    <div>Ingredients</div>
+    <textarea name="content" ></textarea>
+    <div>Instructions</div>
+    <textarea name="content" ></textarea>
+    <input type="submit" value="Add Recipe">  
+
+</form>  -->
 
 <%- include('../partials/footer')%>

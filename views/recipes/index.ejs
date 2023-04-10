@@ -6,33 +6,44 @@
     <tr>
         <th>Name</th>
         <th>Time<br>Cooking</th>
+        <th>Time<br>Edit</th>
+</form>
+
     </tr>
     </thead>  
     <tbody>
+       
     <% recipes.forEach(function(r) { %>
+       
         <tr>
         <td><%= r.name %></td>
         <td><%= r.timeCooking %></td>
         <td><a href="/recipes/<%= r._id%>">Details</a></td>
+        <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
       </tr>
+      
    <% }); %>
-
-  
-   <!-- <a href="/recipes/new">ADD NEW RECIPE</a> -->
 </tbody>
 </table>
 
-<!-- <form id="new-recipe" action="/recipes" method="POST">
+ <form id="new-recipe" action="/recipes/index" method="POST">
     <div>Name</div>
     <input type="text" name="name">
     <div>Time Cooking</div>
     <input type="number" name="timeCooking">
+    <!-- <select name="timeCooking">
+        <option value="Hours">hours</option>
+        <option value="Minutes">minutes</option>
+    </select> -->
     <div>Ingredients</div>
-    <textarea name="content" ></textarea>
+    <textarea name="ingredients" ></textarea>
     <div>Instructions</div>
-    <textarea name="content" ></textarea>
+    <textarea name="instructions" ></textarea>
     <input type="submit" value="Add Recipe">  
+</form>  
 
-</form>  -->
+
+
+
 
 <%- include('../partials/footer')%>

@@ -5,17 +5,21 @@ const recipesCtrl = require('../controllers/recipes');
 
 // GET /recipes
 router.get('/', recipesCtrl.index);
+// //GET /recipes/new
+router.get('/new', recipesCtrl.new);
+// GET /reviews/:id/edit
+router.get('/:id/edit', recipesCtrl.edit);
 
 // GET / recipes/:id
 router.get('/:id', recipesCtrl.show);
 
 // // POST /recipes
-// router.post('/', recipesCtrl.create);
+ router.post('/index', recipesCtrl.create);
 
-// //GET /recipes/new
-// router.get('/new', recipesCtrl.new);
+// PUT /reviews/:id
+ router.put('/:id', recipesCtrl.update);
 
-
-
+ //DELETE /recipes/:id
+//  router.delete('/:id', recipesCtrl.delete);
 
 module.exports = router;

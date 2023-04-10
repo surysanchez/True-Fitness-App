@@ -6,13 +6,15 @@ const reviewsCtrl = require('../controllers/reviews');
 // POST /recipe/:id/reviews
 router.post('/recipes/:id/reviews', reviewsCtrl.create);
 
+// GET /reviews/:id/edit
+// router.get('/reviews/:id/edit', reviewsCtrl.edit);
+
 // DELETE /reviews/:id
 router.delete('/reviews/:id', reviewsCtrl.delete);
 
-// GET /reviews/:id/edit
-router.get('/reviews/:id/edit', reviewsCtrl.edit);
-
 // PUT /reviews/:id
-router.put('/reviews/:id', reviewsCtrl.update);
+// router.put('/reviews/:id', reviewsCtrl.update);
+
+
 
 module.exports = router;

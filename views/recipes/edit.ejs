@@ -1,0 +1,8 @@
+<%- include('../partials/header')%>
+
+<form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
+    <input type="text" name="recipe" value="<%= recipe.recipe %>">
+ <button type="submit">Save</button>
+</form>
+
+<%- include('../partials/footer')%>

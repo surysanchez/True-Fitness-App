@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const reviewsSchema = new Schema ({
     content: {
         type: String,
-        required: true
+         required: true
     },
     rating: {
         type: Number,
@@ -27,9 +27,9 @@ const reviewsSchema = new Schema ({
 
 const recipeSchema = new Schema({
   name: {type: String},
+  
    timeCooking: {
-     type: Number,
-//      match: []
+     type: Number,     
         min: 0
  },
     ingredients: {

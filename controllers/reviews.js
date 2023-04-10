@@ -2,7 +2,9 @@ const Recipe = require('../models/recipe');
 
 module.exports = {
     create,
-    delete: deleteReview
+    delete: deleteReview,
+    edit,
+    update
 };
 
 async function create(req, res) {
@@ -24,4 +26,20 @@ async function deleteReview(req, res){
     await recipe.save();
     res.redirect(`/recipes/${recipe._id}`);
 
+}
+
+async function edit(req, res) {
+    const review = await Review.findById(req.params.id);
+    res.render('reviews/edit',{title: 'Edit Review', review} );
+
+}
+
+
+async function update(req, res) {
+    try {
+        const review = await Review.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    } catch (err) {
+        console.log(err);
+        res.render('reviews/edit', {title: 'Edit Rewiew', review: req.body, errorMsg: err.message});
+    }
 }

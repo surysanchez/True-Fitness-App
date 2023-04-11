@@ -10,7 +10,7 @@ router.post('/recipes/:id/reviews', ensureLoggedIn, reviewsCtrl.create);
 // router.get('/reviews/:id/edit', reviewsCtrl.edit);
 
 // DELETE /reviews/:id
-router.delete('/reviews/:id',ensureLoggedIn,  reviewsCtrl.delete);
+router.delete('/reviews/:id', ensureLoggedIn, reviewsCtrl.delete);
 
 // PUT /reviews/:id
 // router.put('/reviews/:id', reviewsCtrl.update);

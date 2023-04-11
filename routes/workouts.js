@@ -10,7 +10,7 @@ router.get('/', workoutsCtrl.index);
 // GET /workouts/new
 router.get('/index', ensureLoggedIn, workoutsCtrl.new);
 
-// GET /movies/:id 
+// GET /workouts/:id 
 router.get('/:id', workoutsCtrl.show);
 
 // POST //workouts

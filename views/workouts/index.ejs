@@ -1,28 +1,41 @@
 <%- include('../partials/header')%>
 
 <table id="all-workouts">
-    <thead>
-        <tr>
-            <th>Exercise</th>
-            <th>Done?</th>
-        </tr>
-    </thead>
-    <tbody>
-         <% workouts.forEach(function(w) { %>
-            <tr>
-                <td><%= w.title%></td>
-                <td><%= w.completed ? 'Yes' : 'No'%></td>
-             
-            </tr>
-            <%}); %> 
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name of Workout</th>
+      <th>Level</th>
+      <th>Done?</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <% workouts.forEach(function(w) { %>
+    <tr>
+      <td><%= w.title%></td>
+      <td><%= w.level%></td>
+      <td><%= w.completed ? 'Yes' : 'No'%></td>
+    </tr>
+    <%}); %>
+  </tbody>
 
-<form id="add-workout" action="/workouts" method="POST">
+  <% if (user) { %>
+    <form id="add-workout" action="/workouts" method="POST">
     <label>Exercise</label>
-    <input type="text" name="title">
+    <input type="text" name="title" />
+    <label>Level</label>
+    <select name="level">
+        <option value="Beginner">Beginner(easy)</option>
+        <option value="Intermediate">Intermediate(medium)</option>
+        <option value="Experienced">Experienced(hard)</option>
+
+    </select>
     <label>Completed</label>
-    <input type="checkbox" name="completed" checked>
-    <input type="submit" value="Add Workout">
-</form>
+    <input type="checkbox" name="completed" checked />
+    <input type="submit" value="Add Workout" />
+  </form>
+<% } %>
 </table>
+
+
 <%- include('../partials/footer')%>

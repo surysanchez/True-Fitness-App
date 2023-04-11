@@ -3,16 +3,16 @@
 <section id="detail-page">
   <div>Ingredients:</div>
   <div><%=recipe.ingredients %></div>
-
   <div>Instructions:</div>
   <div><%= recipe.instructions %></div>
-<% if (user) { %>
+</section>
+  <% if (user) { %>
   <form
     id="add-review"
     method="POST"
     action="/recipes/<%= recipe._id %>/reviews"
   >
-    <div>Review:</div>
+    <div>Reviews:</div>
     <textarea name="content"></textarea>
     <div>Rating:</div>
     <select name="rating">
@@ -23,7 +23,8 @@
       <option value="5">5</option>
     </select>
     <input type="submit" value="Add Review" />
-
+</form>
+<% } %>
     <div>Reviews</div>
     <% if (recipe.reviews.length) { %>
     <table>
@@ -37,8 +38,7 @@
         </tr>
       </thead>
       <tbody>
-        <% let total = 0 %> 
-        <% recipe.reviews.forEach(function(r) { %> <% total
+        <% let total = 0 %> <% recipe.reviews.forEach(function(r) { %> <% total
         += r.rating %>
         <tr>
           <td class="review-user">
@@ -48,6 +48,7 @@
               referrerpolicy="no-referrer"
             /><%= r.userName %>
           </td>
+
           <td><%= r.createdAt.toLocaleDateString() %></td>
           <td><%= r.content %></td>
           <td><%= r.rating %></td>
@@ -56,7 +57,7 @@
             <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
               <button type="submit">X</button>
             </form>
-        <%} %>
+            <%} %>
           </td>
         </tr>
         <% }); %>
@@ -70,9 +71,6 @@
     </table>
     <% } else { %>
     <h5>No Reviews Yet</h5>
-    <% } %>
-<% } %>
-  </form>
-</section>
+    <% } %> 
 
 <%- include('../partials/footer') %>

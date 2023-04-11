@@ -5,10 +5,12 @@ const workoutSchema = new Schema({
     title: {
         type: String,
     } ,
+    level: {type: String},
+
     completed: {
-        type: Boolean,
-        default: true
-    }
+        type: Boolean
+        // default: true
+    } 
     
 }, {
     timestamps: true

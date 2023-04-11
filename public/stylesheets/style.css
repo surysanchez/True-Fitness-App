@@ -156,11 +156,21 @@ table td {
   margin-bottom: 2rem;
 }
 
-#new-recipe {
+/* #new-recipe {
   
-}
+} */
 /* @media (max-width: 500px) {
   body {
     background-color: #B3A394;
   }
 } */
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}

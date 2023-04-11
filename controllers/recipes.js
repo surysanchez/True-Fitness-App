@@ -23,6 +23,9 @@ async function show(req, res) {
 }
 
  async function create(req, res) {
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
      const newRecipe = new Recipe();
      try {
          await Recipe.create(req.body);
@@ -39,13 +42,13 @@ async function show(req, res) {
  }
 
  async function edit(req, res) {
-    const recipe = await Recipe.findById(req.params.id);
+    const recipe = await Recipe.findById(req.params.id, req.user._id);
     res.render('recipes/edit',{title: 'Edit Recipe', recipe});
 }
 
 async function update(req, res) {
     try {
-        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, req.user._id, {new: true});
     res.redirect('/recipes')
     } catch (err) {
         console.log(err);

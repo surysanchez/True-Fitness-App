@@ -4,14 +4,15 @@
     <thead>
         <tr>
             <th>Exercise</th>
-            <th>Completed<br>Not Completed</th>
+            <th>Done?</th>
         </tr>
     </thead>
     <tbody>
          <% workouts.forEach(function(w) { %>
             <tr>
                 <td><%= w.title%></td>
-                <td><%= w.completed%></td>
+                <td><%= w.completed ? 'Yes' : 'No'%></td>
+             
             </tr>
             <%}); %> 
     </tbody>

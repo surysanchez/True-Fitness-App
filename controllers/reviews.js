@@ -9,6 +9,9 @@ module.exports = {
 
 async function create(req, res) {
     const recipe = await Recipe.findById(req.params.id);
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     recipe.reviews.push(req.body);
     try {
         await recipe.save();
@@ -20,7 +23,7 @@ async function create(req, res) {
 
  async function deleteReview(req, res){
     
-     const recipe = await Recipe.findOne({'reviews._id': req.params.id});
+     const recipe = await Recipe.findOne({'reviews._id': req.params.id,'reviews.user': req.user._id});
      console.log(recipe)
      if(!recipe) return res.redirect('/recipes');
      recipe.reviews.remove(req.params.id);

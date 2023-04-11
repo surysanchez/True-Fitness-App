@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const workoutsCtrl = require('../controllers/workouts');
 
-
+console.log('Workout route')
 // GET /workouts
 router.get('/', workoutsCtrl.index);
 

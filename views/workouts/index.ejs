@@ -8,22 +8,20 @@
         </tr>
     </thead>
     <tbody>
-        <% workouts.forEach(function(w) { %>
+         <% workouts.forEach(function(w) { %>
             <tr>
                 <td><%= w.title%></td>
                 <td><%= w.completed%></td>
             </tr>
-        <%}); %>
+            <%}); %> 
     </tbody>
-</table>
-
 
 <form id="add-workout" action="/workouts" method="POST">
     <label>Exercise</label>
     <input type="text" name="title">
     <label>Completed</label>
-    <input type="ckeckbox" name="completed" checked>
+    <input type="checkbox" name="completed" checked>
     <input type="submit" value="Add Workout">
 </form>
-
+</table>
 <%- include('../partials/footer')%>

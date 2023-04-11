@@ -6,7 +6,6 @@ const recipesCtrl = require('../controllers/recipes');
 // GET /recipes
 router.get('/', recipesCtrl.index);
 // //GET /recipes/new
-// router.get('/new', recipesCtrl.new);
 router.get('/index', recipesCtrl.new);
 // GET /reviews/:id/edit
 router.get('/:id/edit', recipesCtrl.edit);

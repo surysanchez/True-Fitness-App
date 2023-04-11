@@ -39,20 +39,21 @@ async function show(req, res) {
  }
 
  async function edit(req, res) {
-     const recipe = await Recipe.findById(req.params.id);
-     res.render('recipes/edit',{title: 'Edit Recipe', recipe});
- }
+    const recipe = await Recipe.findById(req.params.id);
+    res.render('recipes/edit',{title: 'Edit Recipe', recipe});
+}
 
- async function update(req, res) {
-    const recipe = await Recipe.findByIdAndUpdate(req.params.id);
-     try {
-        recipe.save();
-        res.render('/recipes')
-     } catch (err) {
-         console.log(err);
-         res.render('recipes/edit', {title: 'Edit Recipe', recipe: req.body, errorMsg: err.message});
-     }
- }
+async function update(req, res) {
+    try {
+        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.redirect('/recipes')
+    } catch (err) {
+        console.log(err);
+        res.render('recipes/edit', {title: 'Edit Recipe', recipe: req.body, errorMsg: err.message});
+    }
+}
+
+
 
 //  async function deleteRecipe(req,res) {
 //     const recipe = await Recipe.findByIdAndDelete({'recipe._id': req.params.id})

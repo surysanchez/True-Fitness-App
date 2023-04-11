@@ -1,12 +1,29 @@
 <%- include('../partials/header')%>
 
+<table id="all-workouts">
+    <thead>
+        <tr>
+            <th>Exercise</th>
+            <th>Completed<br>Not Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% workouts.forEach(function(w) { %>
+            <tr>
+                <td><%= w.title%></td>
+                <td><%= w.completed%></td>
+            </tr>
+        <%}); %>
+    </tbody>
+</table>
 
 
-
-
-
-
-
-
+<form id="add-workout" action="/workouts" method="POST">
+    <label>Exercise</label>
+    <input type="text" name="title">
+    <label>Completed</label>
+    <input type="ckeckbox" name="completed" checked>
+    <input type="submit" value="Add Workout">
+</form>
 
 <%- include('../partials/footer')%>

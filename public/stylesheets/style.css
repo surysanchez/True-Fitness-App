@@ -51,17 +51,21 @@ a {
   height: 34px;
 }
 nav > a {
-  margin: 40px;
-  text-decoration:underline;
-  padding: 60px;
-  border-radius: 1px;
+  margin: 25px;
+  text-decoration:none;
+  padding: 10px;
+  border-radius: 5px;
 }
 body > main h1:first-child {
   margin-bottom: 50px;
 }
-nav > a:hover:not(.active) {
+ nav > a:hover:not(.active) {
+ background-color: #B3A394;   
+ 
+} 
+nav > a.active {
   color: white;
-  background-color: #B3A394;
+  cursor: default;
 }
 
 .login img {
@@ -80,8 +84,23 @@ table td {
   text-align: center;
 } 
 
+#home-page {
+  display: grid;
+  grid-template-columns: repeat(1, 50%);  
+  background-color: #B3A394;
+  opacity: 0.8;
+  color: black;
+  justify-content: center;
+  padding: 20px ;
+  margin: 10px; 
+  border: 50px solid transparent;
+  border-bottom-color:black;
+  border-top-color: black;
+  top: -50px;
+  place-self: center;
+}
 #list{
-  align-items: center;
+  align-items: center; 
   justify-content: center;
   display: grid;
   /* grid-template-columns: repeat(1, auto); */

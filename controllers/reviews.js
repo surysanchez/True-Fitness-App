@@ -32,13 +32,17 @@ async function create(req, res) {
 
 
  async function edit(req, res) {
-     const review = await Review.findById({'reviews._id':req.params.id, 'reviews._user': req.user.id });
+     const recipe = await Recipe.findOne({'reviews._id':req.
+     params.id, 'reviews.user': req.user._id });
+     console.log(recipe)
+    const review = recipe.reviews.id(req.params.id)
      res.render('reviews/edit',{title: 'Edit Review', review} );
  }
 
  async function update(req, res) {
      try {
          const review = await Review.findByIdAndUpdate({ 'reviews._id': req.params.id, 'reviews._id':req.body,'reviews._user': req.user._id , new: true});
+        //  review.save()
      } catch (err) {
          console.log(err);
          res.render('reviews/edit', {title: 'Edit Review', review: req.body, errorMsg: err.message});

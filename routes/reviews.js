@@ -13,7 +13,7 @@ router.get('/reviews/:id/edit', reviewsCtrl.edit);
 router.delete('/reviews/:id', ensureLoggedIn, reviewsCtrl.delete);
 
 // PUT /reviews/:id
- router.put('/reviews/:id', reviewsCtrl.update);
+ router.put('/reviews/:id/edit', reviewsCtrl.update);
 
 
 

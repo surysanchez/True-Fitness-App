@@ -5,8 +5,8 @@
     <tr>
       <th>Name of Workout</th>
       <th>Level</th>
-      <th>Done?</th>
-    
+      <th>Equipment needed?</th>
+      <!-- <th>Completed on:</th> -->
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,8 @@
     <tr>
       <td><%= w.title%></td>
       <td><%= w.level%></td>
-      <td><%= w.completed ? 'Yes' : 'No'%></td>
+      <td><%= w.equipment ? 'Yes' : 'No'%></td>
+      <!-- <td>< w.completed_on </td> -->
       <td><a href="/workouts/<%=w._id%>/edit ">Edit here</a></td>
     </tr>
     <%}); %>
@@ -29,14 +30,15 @@
         <option value="Beginner">Beginner(easy)</option>
         <option value="Intermediate">Intermediate(medium)</option>
         <option value="Experienced">Experienced(hard)</option>
-
     </select>
-    <label>Completed</label>
-    <input type="checkbox" name="completed" checked />
+    <label>Equipment</label>
+    <input type="checkbox" name="equipment" checked />
     <input type="submit" value="Add Workout" />
+    <!-- <label>Completed on:</label>
+    <input type="datetime-local" name="completed_on" required>
+    <input type="submit" value="Add date"> -->
   </form>
 <% } %>
 </table>
-
 
 <%- include('../partials/footer')%>

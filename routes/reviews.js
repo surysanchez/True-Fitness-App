@@ -7,13 +7,13 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 router.post('/recipes/:id/reviews', ensureLoggedIn, reviewsCtrl.create);
 
 // GET /reviews/:id/edit
-// router.get('/reviews/:id/edit', reviewsCtrl.edit);
+router.get('/reviews/:id/edit', reviewsCtrl.edit);
 
 // DELETE /reviews/:id
 router.delete('/reviews/:id', ensureLoggedIn, reviewsCtrl.delete);
 
 // PUT /reviews/:id
-// router.put('/reviews/:id', reviewsCtrl.update);
+ router.put('/reviews/:id', reviewsCtrl.update);
 
 
 

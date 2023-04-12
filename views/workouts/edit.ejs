@@ -13,17 +13,16 @@
         <option value="Intermediate">Intermediate(medium)</option>
         <option value="Experienced">Experienced(hard)</option>
     </select>
-    </label><br>
-    <label>Completed?:
-        <input type="text" name="Completed" value="<%= workout.completed%>">
-       
-    </label><br>
+</label><br>
+<% if (workout.equipment === false) {%>
+<label>Equipment needed?:
+    <input type="checkbox" name="equipment" value="false">
+</label><br>
+<!-- <label>
+    <input type="date" name="completed_on">
+</label> -->
+<% } %>
      <button type="submit">Save</button>
     </form>
-
-
-
-
-
 
 <%- include('../partials/footer')%>

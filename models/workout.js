@@ -7,10 +7,11 @@ const workoutSchema = new Schema({
     } ,
     level: {type: String},
 
-    completed: {
-        type: Boolean
-        // default: true
-    } 
+    equipment: {
+        type: Boolean,
+         default: true
+    },
+    // completed_on: Date
     
 }, {
     timestamps: true
@@ -21,10 +22,3 @@ module.exports = mongoose.model('Workout', workoutSchema);
 
 
 
-
-
-
-
-
-
-module.exports = mongoose.model('Workout', workoutSchema);

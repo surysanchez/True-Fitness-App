@@ -26,6 +26,10 @@ async function newWorkout(req, res) {
 }
 
 async function create(req, res) {
+  req.body.equipment = !! req.body.equipment
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
     try {
         await Workout.create(req.body);
         res.redirect('/workouts');
@@ -41,12 +45,14 @@ async function edit(req, res) {
   }
   
   async function update(req, res) {
+    req.body.equipment = !! req.body.equipment
+    // req.body.completed_on += 'T00:00'
     try {
       const workout = await Workout.findByIdAndUpdate(
         req.params.id,
-        req.body,
-        req.user._id,
-        { new: true }
+         req.body
+        // req.user._id,
+        // { new: true }
       );
       res.redirect("/workouts");
     } catch (err) {
@@ -54,7 +60,7 @@ async function edit(req, res) {
       res.render("workouts/edit", {
         title: "Edit Workout",
         recipe: req.body,
-        errorMsg: err.message,
+        errorMsg: err.message
       });
     }
   }

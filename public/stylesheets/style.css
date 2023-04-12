@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-
 }
 
 body {
@@ -33,14 +32,14 @@ nav > img {
   object-fit: contain;
   margin-right: auto;
 }
-/* body > main {
+ body > main {
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: 20px; */
-  /* overflow-y: scroll; */
-
+  padding: 20px; 
+ 
+ }
 
 a {
   color: #00B7FF;
@@ -63,7 +62,6 @@ body > main h1:first-child {
 nav > a:hover:not(.active) {
   color: white;
   background-color: #B3A394;
-  
 }
 
 .login img {

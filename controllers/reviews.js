@@ -2,9 +2,9 @@ const Recipe = require('../models/recipe');
 
 module.exports = {
     create,
-    delete: deleteReview
-    // edit,
-    // update
+    delete: deleteReview,
+     edit,
+     update
 };
 
 async function create(req, res) {
@@ -31,17 +31,16 @@ async function create(req, res) {
  }
 
 
+ async function edit(req, res) {
+     const review = await Review.findById({'reviews._id':req.params.id, 'reviews._user': req.user.id });
+     res.render('reviews/edit',{title: 'Edit Review', review} );
+ }
 
-// async function edit(req, res) {
-//     const review = await Review.findById(req.params.id);
-//     res.render('reviews/edit',{title: 'Edit Review', review} );
-// }
-
-// async function update(req, res) {
-//     try {
-//         const review = await Review.findByIdAndUpdate(req.params.id, req.body, {new: true});
-//     } catch (err) {
-//         console.log(err);
-//         res.render('reviews/edit', {title: 'Edit Review', review: req.body, errorMsg: err.message});
-//     }
-// }
+ async function update(req, res) {
+     try {
+         const review = await Review.findByIdAndUpdate({ 'reviews._id': req.params.id, 'reviews._id':req.body,'reviews._user': req.user._id , new: true});
+     } catch (err) {
+         console.log(err);
+         res.render('reviews/edit', {title: 'Edit Review', review: req.body, errorMsg: err.message});
+     }
+ }

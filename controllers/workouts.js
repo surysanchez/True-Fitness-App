@@ -3,7 +3,9 @@ module.exports = {
     index,
     show,
     new: newWorkout,
-    create
+    create,
+    edit,
+    update
 }
 async function index(req, res) {
     console.log('Hi')
@@ -26,13 +28,33 @@ async function newWorkout(req, res) {
 async function create(req, res) {
     try {
         await Workout.create(req.body);
-  
         res.redirect('/workouts');
     } catch(err) {
         console.log(err);
         res.render('workouts/index', {title: 'Workouts', errorMsg: err.message});
-    
     }
-    console.log(newWorkout)
 }
 
+async function edit(req, res) {
+    const workout = await Workout.findById(req.params.id, req.user._id);
+    res.render("workouts/edit", { title: "Edit Workout", workout });
+  }
+  
+  async function update(req, res) {
+    try {
+      const workout = await Workout.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        req.user._id,
+        { new: true }
+      );
+      res.redirect("/workouts");
+    } catch (err) {
+      console.log(err);
+      res.render("workouts/edit", {
+        title: "Edit Workout",
+        recipe: req.body,
+        errorMsg: err.message,
+      });
+    }
+  }

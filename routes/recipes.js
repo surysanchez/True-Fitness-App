@@ -12,7 +12,7 @@ router.get('/index', ensureLoggedIn, recipesCtrl.new);
 router.get('/:id/edit', ensureLoggedIn, recipesCtrl.edit);
 
 // GET / recipes/:id
-router.get('/:id', recipesCtrl.show);
+router.get('/:id', ensureLoggedIn, recipesCtrl.show);
 
 // // POST /recipes
 //  router.post('/index', recipesCtrl.create);
@@ -22,6 +22,6 @@ router.post('/', ensureLoggedIn, recipesCtrl.create);
  router.put('/:id',ensureLoggedIn,  recipesCtrl.update);
 
  //DELETE /recipes/:id
-//  router.delete('/:id', recipesCtrl.delete);
+router.delete('/:id', recipesCtrl.delete);
 
 module.exports = router;

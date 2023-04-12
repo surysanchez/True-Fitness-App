@@ -19,6 +19,9 @@
         <td><%= r.timeCooking %></td>
         <td><a href="/recipes/<%= r._id%>">Details</a></td>
         <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
+        <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+        </form>
       </tr>
       
    <% }); %>

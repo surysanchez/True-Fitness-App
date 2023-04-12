@@ -15,6 +15,7 @@
       <td><%= w.title%></td>
       <td><%= w.level%></td>
       <td><%= w.completed ? 'Yes' : 'No'%></td>
+      <td><a href="/workouts/<%=w._id%>/edit ">Edit here</a></td>
     </tr>
     <%}); %>
   </tbody>

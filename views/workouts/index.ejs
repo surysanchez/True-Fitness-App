@@ -21,18 +21,19 @@
     </tr>
     <%}); %>
   </tbody>
+</table>
 
   <% if (user) { %>
     <form id="add-workout" action="/workouts" method="POST">
-    <label>Exercise</label>
+    <div>Exercise:</div>
     <input type="text" name="title" />
-    <label>Level</label>
+    <div>Level:</div>
     <select name="level">
         <option value="Beginner">Beginner(easy)</option>
         <option value="Intermediate">Intermediate(medium)</option>
         <option value="Experienced">Experienced(hard)</option>
     </select>
-    <label>Equipment</label>
+    <div>Equipment:</div>
     <input type="checkbox" name="equipment" checked />
     <input type="submit" value="Add Workout" />
     <!-- <label>Completed on:</label>
@@ -40,6 +41,6 @@
     <input type="submit" value="Add date"> -->
   </form>
 <% } %>
-</table>
+
 
 <%- include('../partials/footer')%>

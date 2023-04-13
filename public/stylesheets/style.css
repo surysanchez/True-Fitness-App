@@ -1,18 +1,19 @@
 * {
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif; 
- 
 }
 
 body {
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */    
-  background-image: url('https://i.imgur.com/3vZdHQq.jpg');      
+   background-image: url('https://i.imgur.com/3vZdHQq.jpg');  
+    /* background-image: url('https://cdn.pixabay.com/photo/2018/06/02/18/22/fitness-3448864__480.jpg');    */
+
   background-repeat: no-repeat; 
   background-size: cover ; 
   margin-top: 0;
   height: 100vh; 
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 50px 1fr;
   justify-content: center;
   color: black;
   grid-template-areas: 
@@ -22,11 +23,11 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #F1E9DA;
+  background-color: #B3A394;
   display: flex;
   justify-content: flex-end; 
   align-items: center;
-  padding: 0 20px 0 30px;
+   padding: 0 20px 0 30px; 
   
 }
 nav > img {
@@ -36,12 +37,11 @@ nav > img {
 }
  body > main {
   grid-area: main;
-  opacity: 0.9;
+  opacity: 0.89;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px; 
-
  }
 
 a {
@@ -92,17 +92,16 @@ table td {
   display: grid;
   grid-template-columns: repeat(1, 70%);  
   background-color: #B3A394;
-  opacity: 0.9;
+  opacity: 0.8;
   justify-content: center;
   padding: 10px ;
   margin: 110px; 
   width: 50%;
   border: 30px solid transparent;
-  border-bottom-color:black;
-  border-top-color: black;
- 
+  border-left-color:black;
+  border-right-color: black;
   place-self: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 #list {
@@ -113,7 +112,7 @@ table td {
 }
 
 * button {
-  background-color: rgb(168, 59, 59);
+  background-color: #6F1A07;
   border-radius: 5px;
 }
 
@@ -129,43 +128,82 @@ table td {
   font-size: 18px;
 }
 
-#new-recipe {
+#new-recipe , #add-workout{
   display:grid;
   justify-content: center;
   padding: 40px;
-  grid-template-columns: repeat(2, 100%); 
+   grid-template-columns: repeat(2, 30%);  
   gap: 10px;
+  
 }
+
+#new-recipe input[type="text"], #add-workout input[type="text"] {
+  border: 2px solid #2B2118;
+  width: 250px;
+  height: 70px;
+  padding: 20px;
+  margin: 20px;
+  font-size: 14px;
+
+}
+
 table {
+  border: 2px solid #2B2118;
   font-size: 20px;
+  background-color: #B3A394;
+  opacity: 0.89;
 }
 
 #edit-form {
+  font-size: 26px;
   display: grid;
-  /* justify-content: center; */
-  align-items: center;
-  display:grid;
+ justify-content: center; 
   justify-content: center;
   padding: 40px;
   opacity: 0.7;
   margin: 10px; 
-  border: 40px solid transparent;
-  border-bottom-color:black ;
-  border-top-color: black;
-   border-right-color:black;
-  border-left-color: black; 
-  /* grid-template-columns: repeat(1, 150%); 
-  grid-template-rows: repeat(1, auto); */
+   grid-template-columns: repeat(2, 50%); 
   gap: 20px;
 
 }
 #edit-form input[type="text"] {
-  width:200px;
+  border: 2px solid #2B2118;
+  width:300px;
+  height: 90px;
+  padding: 20px;
+  margin: 20px;
+  font-size: 14px;
+
+}
+
+#edit-form button[type="submit"]{
+  height: 50px;
+  width: 60px;
+ color: white;
+}
+
+#edit-form input[type="checkbox"]{
+  height: 20px;
+  width: 25px;
+}
+
+#edit-form select {
+  border: 2px solid #2B2118;
+  width:300px;
+  height: 90px;
+  padding: 20px;
+  margin: 20px;
+  font-size: 14px;
+}
+
+#add-workout select {
+  border: 2px solid #2B2118;
+  width:250px;
   height: 70px;
   padding: 20px;
   margin: 20px;
+  font-size: 14px;
 }
-
 
  * #detail-page {
   color: black; 
@@ -183,7 +221,7 @@ table {
 }
 
 
-* h1 {
+* h1 , * div{
   font-size: 30px;
  font-family: 'Abril Fatface'; 
 }
@@ -196,14 +234,13 @@ table {
 }
 
 #new-recipe input[type="submit"] {
-  background-color: #254D32;
+  background-color: 2E86AB2;
   width: 7rem;
   height: 30px;
   grid-column: 2 / 3;
   margin-bottom: 2rem;
   border-radius: 30%;
   font-size: 17px;
-
 } 
 
  #add-review {
@@ -220,6 +257,7 @@ table {
  @media (max-width: 500px) {
   body {
     background-color: #B3A394;
+    
   }
 } 
 
@@ -234,15 +272,20 @@ table {
   height: 40px;
 }
 
-  /* #all-workouts {
-align-items: center; 
-  justify-content: center; 
-  
- justify-items: center;
-}   */
+#add-workout{
+  margin: 40px;
+}
+#add-workout input[type="submit"] {
+  background-color: #2E86AB;
+  width: 7rem;
+  height: 30px;
+  grid-column: 2 / 3;
+  margin-bottom: 2rem;
+  border-radius: 30%;
+  font-size: 17p
 
-* #add-workout {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
+}
 
-} 
+
+ 
+ 

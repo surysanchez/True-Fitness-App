@@ -3,26 +3,29 @@
 <section id="edit-form">
     <form action="/workouts/<%=workout._id %>?_method=PUT" method="POST">
      
-     <label>Name of Workout:
+     <label>Name of Workout:</label>
      <input type="text" name="title" 
      value="<%= workout.title%>">
-    </label><br>
-     <label>Level:
+    <br>
+     <label>Level:</label>
      <select name="level" value="<%= workout.level%>">
         <option value="Beginner">Beginner(easy)</option>
         <option value="Intermediate">Intermediate(medium)</option>
         <option value="Experienced">Experienced(hard)</option>
     </select>
-</label><br>
+<br>
 <% if (workout.equipment === false) {%>
-<label>Equipment needed?:
+<label>Equipment needed?:</label>
     <input type="checkbox" name="equipment" value="false">
-</label><br>
+<br>
 <!-- <label>
     <input type="date" name="completed_on">
 </label> -->
+
 <% } %>
+<br>
      <button type="submit">Save</button>
     </form>
+    </section>
 
 <%- include('../partials/footer')%>

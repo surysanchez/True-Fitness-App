@@ -10,6 +10,7 @@
 * Express Framework
 * EJS(View Engine)               
 * MongoDB/Mongoose Database
+* OAuth
 
 # Getting Started 
 [Visit _True-Fitness_]()

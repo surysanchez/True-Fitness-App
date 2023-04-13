@@ -1,45 +1,51 @@
 <%- include('../partials/header')%>
 
+
 <table id="list">
-  <h1>RECIPES</h1>
-  <thead>
+    <h1>RECIPES</h1>
+    <thead>
     <tr>
-      <th>Name</th>
-      <th>Time<br />Cooking</th>
-      <th><br /></th>
+        <th> Name</th>
+        <!-- <th>Time<br>Cooking</th> -->
+        <!-- <th><br></th> -->
+       
     </tr>
-  </thead>
-  <tbody>
+ 
+    </thead>  
+    <tbody>
+      <% if (user)  { %>
     <% recipes.forEach(function(r) { %>
-    <tr>
-      <td>
-        <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
-        </form>
-      </td>
-      <td><%= r.name %></td>
-      <td><%= r.timeCooking %></td>
-      <td><a href="/recipes/<%= r._id%>">Details</a></td>
-      <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
-    </tr>
-    <% }); %>
-  </tbody>
+        <tr>
+            <td>
+                <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                </form>
+            </td>
+        <td><%= r.name %></td>
+        <td><%= r.timeCooking %></td>
+        <td><a href="/recipes/<%= r._id%>">Details</a></td>
+        <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
+      </tr> 
+   <% }); %>
+   <% } %>
+  
+</tbody>
 </table>
 
-<form id="new-recipe" action="/recipes" method="POST">
-  <div>Name</div>
-  <input type="text" name="name" />
-  <div>Time Cooking</div>
-  <input type="number" name="timeCooking" />
-  <!-- <select name="timeCooking">
+ <form  id="new-recipe" action="/recipes" method="POST">
+    <div>Name:</div>
+    <input type="text" name="name">
+    <!-- <div>Time Cooking</div>
+    <input type="number" name="timeCooking">
+     <select name="timeCooking">
         <option value="Hours">hours</option>
         <option value="Minutes">minutes</option>
-    </select> -->
-  <div>Ingredients</div>
-  <textarea name="ingredients"></textarea>
-  <div>Instructions</div>
-  <textarea name="instructions"></textarea>
-  <input type="submit" value="Add Recipe" />
-</form>
+    </select>  -->
+    <div>Ingredients:</div>
+    <textarea name="ingredients" ></textarea>
+    <div>Instructions:</div>
+    <textarea name="instructions" ></textarea>
+    <input type="submit" value="New recipe!">   
+</form>  
 
 <%- include('../partials/footer')%>

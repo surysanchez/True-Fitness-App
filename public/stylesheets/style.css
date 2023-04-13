@@ -131,9 +131,11 @@ table td {
 #new-recipe , #add-workout{
   display:grid;
   justify-content: center;
+  /* justify-items:baseline; */
+  /* align-content: stretch; */
   padding: 40px;
    grid-template-columns: repeat(2, 30%);  
-  gap: 10px;
+  gap: 15px;
   
 }
 

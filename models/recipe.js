@@ -29,10 +29,10 @@ const reviewsSchema = new Schema ({
 const recipeSchema = new Schema({
   name: {type: String},
   
-   timeCooking: {
-     type: Number,     
-        min: 0
- },
+//    timeCooking: {
+//      type: Number,     
+//         min: 0
+//  },
     ingredients: {
         type: String,
     },

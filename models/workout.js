@@ -9,7 +9,7 @@ const workoutSchema = new Schema({
 
     equipment: {
         type: Boolean,
-         default: true
+         default: false
     },
     // completed_on: Date
     

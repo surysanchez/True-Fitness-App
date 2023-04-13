@@ -2,12 +2,15 @@
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif; 
 }
+@media (max-width: 500px) {
+  body {
+    background-color: #B3A394;
+    
+  }
+} 
 
-body {
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */    
-   background-image: url('https://i.imgur.com/3vZdHQq.jpg');  
-    /* background-image: url('https://cdn.pixabay.com/photo/2018/06/02/18/22/fitness-3448864__480.jpg');    */
-
+body {   
+ background-image: url('https://i.imgur.com/3vZdHQq.jpg');  
   background-repeat: no-repeat; 
   background-size: cover ; 
   margin-top: 0;
@@ -19,29 +22,27 @@ body {
   grid-template-areas: 
     "nav"
    "main" 
+  
 }
-
 body > nav {
   grid-area: nav;
   background-color: #B3A394;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: center; 
   align-items: center;
-   padding: 0 20px 0 30px; 
-  
-}
-nav > img {
-  width: 33px;
-  object-fit: contain;
-  margin-right: auto;
-}
+   padding: 0 20px 0 20px;
+   height: 60px;
+   width: 200vh;
+   margin: auto;
+} 
+
  body > main {
   grid-area: main;
   opacity: 0.89;
   display: flex;
-  flex-direction: column;
+ flex-direction:column;
   align-items: center;
-  padding: 20px; 
+  padding: 10px;
  }
 
 a {
@@ -63,13 +64,12 @@ body > main h1:first-child {
   margin-bottom: 50px;
 }
  nav > a:hover:not(.active) {
- background-color: #B3A394;   
+ background-color: #F1F0CC;   
  
 } 
 nav > a.active {
   color: white;
   cursor: default;
- 
 }
 
 .login img {
@@ -81,7 +81,7 @@ nav > a.active {
 }
 table thead th {
   padding: 10px 70px;
-  border-bottom: 2px solid #424748;
+  border-bottom: 2px solid black;
 }
 table td {
   padding: 10px;
@@ -91,12 +91,12 @@ table td {
 #home-page {
   display: grid;
   grid-template-columns: repeat(1, 70%);  
-  background-color: #B3A394;
+  background-color: #F1F0CC;
   opacity: 0.8;
   justify-content: center;
   padding: 10px ;
-  margin: 110px; 
-  width: 50%;
+  margin: 50px; 
+  width: 60%;
   border: 30px solid transparent;
   border-left-color:black;
   border-right-color: black;
@@ -111,35 +111,37 @@ table td {
   justify-items: center;
 }
 
-* button {
-  background-color: #6F1A07;
-  border-radius: 5px;
-}
 
- #list td:nth-child(2), #list td:nth-child(3){
-  min-width: 100px;
-} 
+ #list td:nth-child(1) {
+  min-width: 200px;
+  max-width: 600px;
+}  
 
 #list a {
   border-radius: 4px;
-  background-color: #B8C0C2;
+  background-color: #247BA0;
+  color: white;
   padding: 4px;
   text-decoration: none;
   font-size: 18px;
 }
 
-#new-recipe , #add-workout{
+* button {
+  background-color: #6F1A07;
+  border-radius: 5px;
+  color: white;
+  justify-content: column;
+}
+
+#new-recipe , #add-workout {
   display:grid;
   justify-content: center;
-  /* justify-items:baseline; */
-  /* align-content: stretch; */
   padding: 40px;
    grid-template-columns: repeat(2, 30%);  
   gap: 15px;
-  
 }
 
-#new-recipe input[type="text"], #add-workout input[type="text"] {
+#new-recipe input[type="text"], #add-workout input[type="text"] , #add-review input[type="text"] {
   border: 2px solid #2B2118;
   width: 250px;
   height: 70px;
@@ -148,6 +150,15 @@ table td {
   font-size: 14px;
 
 }
+#new-recipe input[type="submit"] {
+  background-color: 2E86AB2;
+  width: 7rem;
+  height: 30px;
+  grid-column: 2 / 3;
+  margin-bottom: 2rem;
+  border-radius: 30%;
+  font-size: 17px;
+} 
 
 table {
   border: 2px solid #2B2118;
@@ -159,30 +170,34 @@ table {
 #edit-form {
   font-size: 26px;
   display: grid;
- justify-content: center; 
+  align-items: center;
   justify-content: center;
   padding: 40px;
   opacity: 0.7;
   margin: 10px; 
-   grid-template-columns: repeat(2, 50%); 
+  grid-template-columns: repeat(2, 40%); 
   gap: 20px;
 
 }
+
 #edit-form input[type="text"] {
   border: 2px solid #2B2118;
-  width:300px;
-  height: 90px;
+  width:350px;
+  height: 100px;
   padding: 20px;
   margin: 20px;
   font-size: 14px;
 
 }
 
-#edit-form button[type="submit"]{
-  height: 50px;
-  width: 60px;
+  #edit-form button[type="submit"], #new-recipe button[type="submit"] {
+  height: 70px;
+  width: 80px;
  color: white;
-}
+ background-color: #2E86AB; 
+}  
+
+
 
 #edit-form input[type="checkbox"]{
   height: 20px;
@@ -198,52 +213,51 @@ table {
   font-size: 14px;
 }
 
-#add-workout select {
-  border: 2px solid #2B2118;
-  width:250px;
-  height: 70px;
-  padding: 20px;
-  margin: 20px;
-  font-size: 14px;
-}
-
- * #detail-page {
+* #detail-page {
   color: black; 
-  padding: 10px;
-  background-color: antiquewhite;
-  opacity: 0.9;
-/* grid-template-rows: auto auto; */
- grid-template-columns: auto auto;
+  padding: 30px;
+  margin: 15px;
+  max-width: 900px;
+  background-color: #F1F0CC;
+  justify-content: column;
   display: grid;
-  justify-content: center;
   align-items: center;
-  /* grid-template-columns: repeat(2, 20%);
-  grid-template-rows: repeat(2, 30%); */
+   grid-template-columns: repeat(2, 50%); 
   grid-gap: 1rem;
 }
-
 
 * h1 , * div{
   font-size: 30px;
  font-family: 'Abril Fatface'; 
 }
 
-
-#add-review * {
-  font-size: 20px;
-  padding: 7px;
-  border-radius: 10px;
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#new-recipe input[type="submit"] {
-  background-color: 2E86AB2;
-  width: 7rem;
-  height: 30px;
-  grid-column: 2 / 3;
-  margin-bottom: 2rem;
-  border-radius: 30%;
-  font-size: 17px;
-} 
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+#add-review * {
+  font-size: 18px;
+  padding: 7px;
+  border-radius: 10px;
+  display: flex;
+}
+
+#add-review select {
+  border: 2px solid #2B2118;
+  width:82px;
+  height: 70px; 
+  padding: 20px;
+  margin: 20px;
+  font-size: 15px;
+  color: black;
+}
 
  #add-review {
   display: grid;
@@ -254,14 +268,8 @@ table {
   width: 8rem;
   grid-column: 2 / 3;
   margin-bottom: 2rem;
+  background-color:#2E86AB ;
 }
-
- @media (max-width: 500px) {
-  body {
-    background-color: #B3A394;
-    
-  }
-} 
 
 .review-user {
   display: flex;
@@ -284,9 +292,20 @@ table {
   grid-column: 2 / 3;
   margin-bottom: 2rem;
   border-radius: 30%;
-  font-size: 17p
-
+  font-size: 17px;
+  color: black;
 }
+
+#add-workout select {
+  border: 2px solid #2B2118;
+  width:250px;
+  height: 70px;
+  padding: 20px;
+  margin: 20px;
+  font-size: 14px;
+  color: black;
+}
+
 
 
  

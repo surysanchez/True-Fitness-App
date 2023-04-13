@@ -6,8 +6,6 @@
     <thead>
     <tr>
         <th> Name</th>
-       <th><br></th> 
-       
     </tr>
  
     </thead>  
@@ -16,7 +14,7 @@
     <% recipes.forEach(function(r) { %>
         <tr>
             <td>
-                <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+                <form  action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
             </td>
@@ -44,7 +42,8 @@
     <input type="text" name="ingredients">
     <div>Instructions:</div>
   <input type="text" name="instructions">
-    <input type="submit" value="New recipe!">   
+  <button type="submit">New recipe!</button>
+     
 </form>  
 
 <%- include('../partials/footer')%>

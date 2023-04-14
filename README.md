@@ -3,10 +3,10 @@
 
 
 # App's Wireframe 
-<img src='https://i.imgur.com/SLiXO2v.png'    width='300' height='200'>
-<img src='https://i.imgur.com/bQnI3M3.png'    width='300' height='200'>
-<img src='https://i.imgur.com/72CIcjF.png'    width='300' height='200'>
-<img src='https://i.imgur.com/msMWVCc.png'    width='300' height='200'>
+<img src='https://i.imgur.com/SLiXO2v.png'    width='370' height='250'>
+<img src='https://i.imgur.com/bQnI3M3.png'    width='370' height='250'>
+<img src='https://i.imgur.com/72CIcjF.png'    width='370' height='250'>
+<img src='https://i.imgur.com/msMWVCc.png'    width='370' height='250'>
 
 # Technologies Used
 * Node JS  
@@ -20,9 +20,8 @@
 
 
 # Further actions
-1. Ensure user is the only one who can edit and delete their own recipes and workouts .
+1. Create a burger menu on the main page .
 2. Improve the text area where the recipes are created / add text editor . 
-3. Create a burger menu on the main page .
-
+3. Ensure user is the only one who can edit and delete their own recipes and workouts .
 
 

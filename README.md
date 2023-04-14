@@ -22,6 +22,6 @@
 # Further actions
 1. Create a burger menu on the main page .
 2. Improve the text area where the recipes are created / add text editor . 
-3. Ensure user is the only one who can edit and delete their own recipes and workouts .
+
 
 

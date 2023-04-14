@@ -22,6 +22,6 @@ router.post('/', ensureLoggedIn, recipesCtrl.create);
  router.put('/:id',ensureLoggedIn,  recipesCtrl.update);
 
  //DELETE /recipes/:id
-router.delete('/:id', recipesCtrl.delete);
+router.delete('/:id',ensureLoggedIn, recipesCtrl.delete);
 
 module.exports = router;

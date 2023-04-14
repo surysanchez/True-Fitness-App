@@ -45,11 +45,17 @@ function newRecipe(req, res) {
 }
 
 async function edit(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   const recipe = await Recipe.findById(req.params.id, req.user._id);
   res.render("recipes/edit", { title: "Edit Recipe", recipe });
 }
 
 async function update(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   try {
     const recipe = await Recipe.findByIdAndUpdate(
       req.params.id,
@@ -69,8 +75,10 @@ async function update(req, res) {
 }
 
 async function deleteRecipe(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   const recipe = await Recipe.findByIdAndDelete(
-    req.params.id,
-  );
+    req.params.id, req.user._id);
   res.redirect("/recipes");
 }

@@ -40,11 +40,17 @@ async function create(req, res) {
 }
 
 async function edit(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     const workout = await Workout.findById(req.params.id, req.user._id);
     res.render("workouts/edit", { title: "Edit Workout", workout });
   }
   
   async function update(req, res) {
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     req.body.equipment = !! req.body.equipment
     // req.body.completed_on += 'T00:00'
     try {

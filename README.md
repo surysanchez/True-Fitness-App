@@ -1,5 +1,5 @@
 # True-Fitness-App
-###### The objective of this app , is to mainly offer the users a _combiantion of workouts and recipes_ , where the user can create , edit and delete healthy recipes and share them on the app . Also they can view other's user's recipes and its details , this is a great way to get ideas to cook tasty meals .   In addition user's are able to see and create a list of workouts , conceding them to edit the excercises later.
+###### The objective of this app , is to mainly offer the users a _combination of workouts and recipes_ , where the user can create , edit and delete healthy recipes and share them on the app . Also they can view other's user's recipes and its details , this is a great way to get ideas to cook tasty meals .   In addition user's are able to see and create a list of workouts , conceding them to edit the excercises later.
 
 
 # App's Wireframe 

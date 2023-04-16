@@ -11,14 +11,15 @@
   <body>
 
     <nav>
+  
         <a href="/">MAIN</a>
         <br>
-        
-        <a href="/recipes">NUTRITION</a>
+      
+        <a href="/recipes" >NUTRITION</a>
         <br>
         <a href="/workouts">TRAINING</a>
 
-<% if (user) { %>
+        <% if (user) { %>
     <a href="/logout">LOG OUT</a>
   <% } else { %>
     <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

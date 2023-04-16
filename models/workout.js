@@ -13,6 +13,11 @@ const workoutSchema = new Schema({
     },
     // completed_on: Date
     
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
 }, {
     timestamps: true
 });

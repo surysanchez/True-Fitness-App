@@ -10,24 +10,27 @@
  
     </thead>  
     <tbody>  
-     
+      
     <% recipes.forEach(function(r) { %>
         <tr>
+            <td><%= r.name %></td>
+            <td><%= r.timeCooking %></td>
+            <td><a href="/recipes/<%= r._id%>">Details</a></td>
+          
+        <% if (user?._id.equals(r.user)) { %>
+        <td>
+            <form  action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+            </form>
+          </td>
+            <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
             <td>
-                <% if (user)  { %>
-                <form  action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
-                </form>
-                <% } %>
+                <% } %>  
             </td>
-        <td><%= r.name %></td>
-        <td><%= r.timeCooking %></td>
-        <td><a href="/recipes/<%= r._id%>">Details</a></td>
-        <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
       </tr> 
+
    <% }); %>
-   
-  
+
 </tbody>
 </table>
 <% if (user) { %>

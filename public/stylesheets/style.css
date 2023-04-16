@@ -149,6 +149,17 @@ table td {
    grid-template-columns: repeat(2, 30%);  
   gap: 15px;
 }
+/* 
+#new-recipe input[type="text"], #add-workout input[type="text"] , #add-review input[type="text"] {
+  border: 2px solid #2B2118;
+  width: 250px;
+  height: 70px;
+  padding: 20px;
+  margin: 20px;
+  font-size: 14px;
+
+} */
+
 
 #new-recipe input[type="text"], #add-workout input[type="text"] , #add-review input[type="text"] {
   border: 2px solid #2B2118;

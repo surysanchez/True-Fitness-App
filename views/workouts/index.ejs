@@ -16,8 +16,10 @@
       <td><%= w.title%></td>
       <td><%= w.level%></td>
       <td><%= w.equipment ? 'Yes' : 'No'%></td>
+      <% if (user?._id.equals(w.user)) { %>
       <!-- <td>< w.completed_on </td> -->
       <td><a href="/workouts/<%=w._id%>/edit ">Edit here</a></td>
+      <% } %>  
     </tr>
     <%}); %>
   </tbody>

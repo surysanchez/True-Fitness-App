@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-
-    <nav>
-  
-        <a href="/">MAIN</a>
-        <br>
-      
-        <a href="/recipes" >NUTRITION</a>
-        <br>
-        <a href="/workouts">TRAINING</a>
-
-        <% if (user) { %>
-    <a href="/logout">LOG OUT</a>
-  <% } else { %>
-    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-  <% } %>
-</nav>
-<main>
- 
+  <body class="container-fluid">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+        <a class="a" href="/">MAIN</a>
+        <br />
+          <a class="a" href="/recipes">NUTRITION</a>
+        <!-- <br /> -->
+        <a class="a" href="/workouts">TRAINING</a>
+          <% if (user) { %>
+          <a class="a" href="/logout" >LOG OUT</a>
+          <% } else { %>
+          <a class="a" href="/auth/google" 
+            >LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"
+          /></a>
+          <% } %>
+        </li>
+      </div>
+    </nav>
+    <main>
+  </body>
+</html>

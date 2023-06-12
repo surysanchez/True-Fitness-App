@@ -1,55 +1,64 @@
 <%- include('../partials/header')%>
-
-
-<table id="list">
-    <h1>RECIPES</h1>
-    <thead>
+<!-- id="list"  -->
+<!-- List of Recipes  -->
+<table class="table-responsive">
+  <h1>RECIPES</h1>
+  <thead>
     <tr>
-        <th> Name</th>
+      <th scope="col">Name</th>
+      <tbody class="table-group-divider">
+        <!-- <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th> -->
+      </tbody>
     </tr>
- 
-    </thead>  
-    <tbody>  
-      
-    <% recipes.forEach(function(r) { %>
-        <tr>
-            <td><%= r.name %></td>
-            <td><%= r.timeCooking %></td>
-            <td><a href="/recipes/<%= r._id%>">Details</a></td>
-          
-        <% if (user?._id.equals(r.user)) { %>
-        <td>
-            <form  action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-            </form>
-          </td>
-            <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
-            <td>
-                <% } %>  
-            </td>
-      </tr> 
+  </thead>
+  <tbody>
+    <% recipes.forEach(function(r) { %> <% if (user?._id.equals(r.user)) { %>
+    <tr>
+      <th scope="row"></th>
+      <td>
+        <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
+        <% } %>
+      </td>
+      <td><%= r.name %></td>
+      <td><%= r.timeCooking %></td>
+      <td><a href="/recipes/<%= r._id%>">Details</a></td>
 
-   <% }); %>
+      <% if (user?._id.equals(r.user)) { %>
+      <!-- <td>
+        <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
+      </td> -->
+      <td><a href="/recipes/<%=r._id%>/edit ">Edit Recipe</a></td>
+      <% } %>
+    </tr>
+  </tbody>
 
-</tbody>
+  <tbody class="table-group-divider">
+    <!-- Create new Recipe  -->
+    <% }); %>
+  </tbody>
 </table>
 <% if (user) { %>
- <form  id="new-recipe" action="/recipes" method="POST">
-    <% } %>
-    <div>Name:</div>
-    <input type="text" name="name">
-    <!-- <div>Time Cooking</div>
+<form id="new-recipe" action="/recipes" method="POST" class="container-fluid">
+  <% } %>
+  <div style="padding-left: 35px">Name:</div>
+  <textarea type="text" name="name" required></textarea>
+  <!-- <div>Time Cooking</div>
     <input type="number" name="timeCooking">
      <select name="timeCooking">
         <option value="Hours">hours</option>
         <option value="Minutes">minutes</option>
     </select>  -->
-    <div>Ingredients:</div>
-    <input type="text" name="ingredients">
-    <div>Instructions:</div>
-  <input type="text" name="instructions">
-  <button type="submit">New recipe!</button>
-     
-</form>  
+  <div>Ingredients:</div>
+  <textarea type="text" rows="6" name="ingredients" required></textarea>
+  <div>Instructions:</div>
+  <textarea type="text" name="instructions" required></textarea>
+  <button class="btn" style="margin-left: 5%" type="submit">New recipe!</button>
+</form>
 
 <%- include('../partials/footer')%>

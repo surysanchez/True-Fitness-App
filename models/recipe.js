@@ -1,55 +1,56 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const reviewsSchema = new Schema ({
+const reviewsSchema = new Schema(
+  {
     content: {
-        type: String,
-         required: true
+      type: String,
+      required: true,
     },
     rating: {
-        type: Number,
-        min:1,
-        max:5,
-        default: 5
+      type: Number,
+      min: 1,
+      max: 5,
+      default: 5,
     },
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     userName: String,
-    userAvatar: String
+    userAvatar: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-}, {
-    timestamps: true
-});
+const recipeSchema = new Schema(
+  {
+    name: { type: String },
 
-
-const recipeSchema = new Schema({
-  name: {type: String},
-  
-//    timeCooking: {
-//      type: Number,     
-//         min: 0
-//  },
+    //    timeCooking: {
+    //      type: Number,
+    //         min: 0
+    //  },
     ingredients: {
-        type: String,
+      type: String,
     },
     instructions: {
-        type: String
+      type: String,
     },
     reviews: [reviewsSchema],
 
     user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-}, {
-    timestamps: true
-});
-
-
-module.exports = mongoose.model('Recipe', recipeSchema);
+module.exports = mongoose.model("Recipe", recipeSchema);

@@ -7,8 +7,40 @@ module.exports = {
   new: newRecipe,
   edit,
   update,
-  delete: deleteRecipe
+  delete: deleteRecipe,
 };
+
+async function edit(req, res) {
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
+  const recipe = await Recipe.findById(req.params.id, req.user._id);
+  res.render("recipes/edit", { title: "Edit Recipe", recipe });
+}
+
+async function update(req, res) {
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
+  // req.body.recipe = !!req.body.recipe;
+  try {
+    const recipe = await Recipe.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      req.user._id,
+      { new: true }
+    );
+    console.log(req.body);
+    res.redirect("/recipes");
+  } catch (err) {
+    console.log(err);
+    res.render("recipes/edit", {
+      title: "Edit Recipe",
+      recipe: req.body,
+      errorMsg: err.message,
+    });
+  }
+}
 
 async function index(req, res) {
   const recipes = await Recipe.find({});
@@ -44,42 +76,10 @@ function newRecipe(req, res) {
   res.render("recipes/index", { title: "Add Recipe", errorMsg: "" });
 }
 
-async function edit(req, res) {
+async function deleteRecipe(req, res) {
   req.body.user = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
-  const recipe = await Recipe.findById(req.params.id, req.user._id);
-  res.render("recipes/edit", { title: "Edit Recipe", recipe });
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
+  const recipe = await Recipe.findByIdAndDelete(req.params.id, req.user._id);
+  res.redirect("/recipes");
 }
-
-async function update(req, res) {
-  req.body.user = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
-  try {
-    const recipe = await Recipe.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      req.user._id,
-      { new: true }
-    );
-    res.redirect("/recipes");
-  } catch (err) {
-    console.log(err);
-    res.render("recipes/edit", {
-      title: "Edit Recipe",
-      recipe: req.body,
-      errorMsg: err.message,
-    });
-  }
-}
-
- async function deleteRecipe(req, res) {
-   req.body.user = req.user._id;
-   req.body.userName = req.user.name;
-   req.body.userAvatar = req.user.avatar;
-    const recipe = await Recipe.findByIdAndDelete(
-      req.params.id, req.user._id);
-   res.redirect("/recipes");
- }
-

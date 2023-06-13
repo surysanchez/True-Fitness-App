@@ -1,28 +1,24 @@
 <%- include('../partials/header')%>
-
 <section id="edit-form" class="container-fluid">
   <h2>Edit Recipe</h2>
   <form action="/recipes/<%=recipe._id %>?_method=PUT" method="POST">
-    <label
-      >Name: <input type="text" name="name" value="<%= recipe.name%>" /> </label
-    ><br />
-    <label
-      >Ingredients:
-      <textarea
-        type="text"
-        name="ingredients"
-        value="<%= recipe.ingredients %>"
-      ></textarea></label
-    ><br />
-
-    <label
-      >Instructions:
-      <textarea
-        type="text"
-        name="instructions"
-        value="<%= recipe.instructions%>"
-      ></textarea></label
-    ><br />
+    <textarea id="textarea" name="name" rows="1"><%= recipe.name%></textarea>
+    <br />
+    <textarea name="ingredients" id="textarea" id="myTextarea" rows="1">
+ <%=recipe.ingredients %></textarea
+    >
+    <br />
+    <textarea name="instructions" id="textarea">
+ <%=recipe.instructions%></textarea
+    >
+    <script>
+      tinymce.init({
+        selector: "textarea#textarea",
+        // plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        toolbar:
+          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough |  table | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+      });
+    </script>
     <button type="submit">Save</button>
   </form>
 </section>

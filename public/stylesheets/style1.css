@@ -189,14 +189,14 @@ table {
 }
 
 #edit-form {
-  font-size: 26px;
-  display: grid;
+  /* font-size: 26px; */
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 10px;
   opacity: 0.9;
   margin: 10px; 
-  grid-template-columns: repeat(2, 40%); 
+  /* grid-template-columns: repeat(2, 40%);  */
   gap: 20px;
 
 }

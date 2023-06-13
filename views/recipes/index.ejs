@@ -1,6 +1,7 @@
 <%- include('../partials/header')%>
-<!-- id="list"  -->
+<!--   -->
 <!-- List of Recipes  -->
+<br>
 <table class="table-responsive">
   <h1>RECIPES</h1>
   <thead>
@@ -19,12 +20,12 @@
       <th scope="row"></th>
       <td>
         <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
+          <button id="deletebtn" type="submit">X</button>
         </form>
         <% } %>
       </td>
-      <td><%= r.name %></td>
-      <td><%= r.timeCooking %></td>
+      <td><%- r.name %></td>
+      <td><%- r.timeCooking %></td>
       <td><a href="/recipes/<%= r._id%>">Details</a></td>
 
       <% if (user?._id.equals(r.user)) { %>
@@ -37,28 +38,35 @@
       <% } %>
     </tr>
   </tbody>
-
-  <tbody class="table-group-divider">
-    <!-- Create new Recipe  -->
     <% }); %>
   </tbody>
 </table>
-<% if (user) { %>
-<form id="new-recipe" action="/recipes" method="POST" class="container-fluid">
-  <% } %>
-  <div style="padding-left: 35px">Name:</div>
-  <textarea type="text" name="name" required></textarea>
-  <!-- <div>Time Cooking</div>
-    <input type="number" name="timeCooking">
-     <select name="timeCooking">
-        <option value="Hours">hours</option>
-        <option value="Minutes">minutes</option>
-    </select>  -->
-  <div>Ingredients:</div>
-  <textarea type="text" rows="6" name="ingredients" required></textarea>
-  <div>Instructions:</div>
-  <textarea type="text" name="instructions" required></textarea>
-  <button class="btn" style="margin-left: 5%" type="submit">New recipe!</button>
-</form>
-
+<br>
+  <!-- Create new Recipe  -->
+  <% if (user) { %>
+    <form id="new-recipe" action="/recipes" method="POST">
+      <% } %>
+      <div style="padding-left: 35px">Name:</div>
+      <textarea type="text" name="name" required></textarea>
+      <!-- <div>Time Cooking</div>
+        <input type="number" name="timeCooking">
+         <select name="timeCooking">
+            <option value="Hours">hours</option>
+            <option value="Minutes">minutes</option>
+        </select>  -->
+      <div>Ingredients:</div>
+      <textarea  type="text" name="ingredients" rows="3" required></textarea>
+      <div>Instructions:</div>
+      <textarea
+        id="textarea"
+        type="text"
+        name="instructions"
+        rows="3"
+        required
+      ></textarea>
+   
+      <button class="btn"  type="submit">New recipe!</button>
+    </form>
+    
+    
 <%- include('../partials/footer')%>

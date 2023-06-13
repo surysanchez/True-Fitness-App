@@ -20,6 +20,10 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <!-- <script src="https://<heroku.tld>/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <!-- <script src="https://cdn.tiny.cloud/1/process.env.TINY/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <script src="https://cdn.tiny.cloud/1/r4cxaffuvotedkqd0c1l07q2tys8jzu14ohsbzbr9x4fm8cr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+ 
   </head>
   <body class="container-fluid">
     <script
@@ -35,6 +39,7 @@
         <!-- <br /> -->
         <a class="a" href="/workouts">TRAINING</a>
           <% if (user) { %>
+            <!-- <a class="a" href="/newrecipe">Add Recipe</a> -->
           <a class="a" href="/logout" >LOG OUT</a>
           <% } else { %>
           <a class="a" href="/auth/google" 

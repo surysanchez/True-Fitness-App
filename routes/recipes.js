@@ -6,8 +6,8 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET /recipes
 router.get("/", recipesCtrl.index);
-// //GET /recipes/new
-router.get("/index", ensureLoggedIn, recipesCtrl.new);
+// // //GET /recipes/new
+// router.get("/index", ensureLoggedIn, recipesCtrl.new);
 // GET /reviews/:id/edit
 router.get("/:id/edit", ensureLoggedIn, recipesCtrl.edit);
 
@@ -16,7 +16,7 @@ router.get("/:id", ensureLoggedIn, recipesCtrl.show);
 
 // // POST /recipes
 //  router.post('/index', recipesCtrl.create);
-router.post("/", ensureLoggedIn, recipesCtrl.create);
+// router.post("/", ensureLoggedIn, recipesCtrl.create);
 
 // PUT /reviews/:id
 router.put("/:id", ensureLoggedIn, recipesCtrl.update);

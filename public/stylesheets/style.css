@@ -144,7 +144,6 @@ body > nav {
 table thead th {
   padding: 15px 90px;
   font-size: larger;
-  color: #F5B700;
   font-family: 'Luckiest Guy', cursive;
 }
 
@@ -185,103 +184,84 @@ table > th{
   font-size: 18px;
 }
 
-* button {
+#deletebtn {
   background-color: #6F1A07;
   border-radius: 5px;
   color: white;
   justify-content: column;
 }
 
+
 #new-recipe , #add-workout {
-  display:grid;
+  /* display: block; */
+  height: 60vh;
   align-items: center;
   justify-content: center;
   padding-top: 5%;
-  padding-right: 36%;
-  grid-template-columns: repeat(2, 15%);  
-  gap: 15px;
-  color: #F3B61F;
-
+  /* color: white; */
 }
-
-/* 
-#new-recipe input[type="text"], #add-workout input[type="text"] , #add-review input[type="text"] {
-  border: 2px solid #2B2118;
-  width: 250px;
-  height: 70px;
-  padding: 20px;
-  margin: 20px;
-  font-size: 14px;
-
-} */
 
 
 #new-recipe textarea[type="text"], #add-workout textarea[type="text"] , #add-review textarea[type="text"] {
   border: 1px solid #2B2118;
-  /* width: 250px;
-  height: 70px; */
-  width: 600px;
-  padding: 20px;
-  margin: 10px;
+  width: 550px; 
+  height: 100px;
   font-size: 14px;
-
 }
-#new-recipe input[type="submit"] {
-  background-color: 2E86AB2;
-  width: 9rem;
-  height: 30px;
-  margin-bottom: 2rem;
-  border-radius: 30%;
-  font-size: 17px;
-} 
 
 
+#new-recipe > .btn{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 45%;
+}
 
 #edit-form {
-  font-size: 26px;
-  display: grid;
+  /* font-size: 26px; */
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
   opacity: 0.9;
+  width: 75%;
   margin: 10px; 
-  grid-template-columns: repeat(2, 40%); 
+  grid-template-columns: repeat(3, 10%);
   gap: 20px;
 
 }
 
-#edit-form input[type="text"] {
+
+/* #edit-form textarea[type="text"] {
   border: 2px solid #2B2118;
-  width:350px;
-  height: 100px;
-  padding: 20px;
-  margin: 20px;
+  gap: 5%;
+ 
   font-size: 14px;
 
-}
+} */
 
-  #edit-form button[type="submit"], #new-recipe button[type="submit"] {
+  /* #edit-form button[type="submit"], #new-recipe button[type="submit"] {
   height: 70px;
   width: 80px;
  color: white;
  background-color: #2E86AB; 
-}  
+}   */
 
 
 
-#edit-form input[type="checkbox"]{
+/* #edit-form input[type="checkbox"]{
   height: 20px;
   width: 25px;
-}
+} */
 
-#edit-form select {
+/* #edit-form select {
   border: 2px solid #2B2118;
   width:300px;
   height: 90px;
   padding: 20px;
   margin: 20px;
   font-size: 14px;
-}
+} */
 
 * #detail-page {
   color: black; 

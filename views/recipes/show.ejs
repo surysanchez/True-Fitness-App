@@ -2,21 +2,21 @@
 
 <section id="detail-page" class="table-responsive">
   <div>Name</div>
-  <th><%= recipe.name %></th>
+  <th><%- recipe.name %></th>
   <div>Ingredients:</div>
-  <th><%=recipe.ingredients %></th>
+  <th><%- recipe.ingredients %></th>
   <div>Instructions:</div>
-  <th><%= recipe.instructions %></th>
+  <th><%- recipe.instructions %></th>
 </section>
   <% if (user) { %>
   <form
     id="add-review"
     method="POST"
     action="/recipes/<%= recipe._id %>/reviews">
-    <div>Reviews:</div>
-    <input type="text" name="content">
-    <div>Rating:</div>
-    <select name="rating">
+    <div>Comments:</div>
+    <input type="text" name="content" required>
+    <div>Rating: </div>
+    <select name="rating" required>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

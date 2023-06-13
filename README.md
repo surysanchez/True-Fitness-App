@@ -22,6 +22,8 @@
 # Further actions
 1. Create a burger menu on the main page .
 2. Improve the text area where the recipes are created / add text editor . 
+3. Add Mobile Responsive Design.
+4. Implement two APIs for recipes and workouts .
 
 
 

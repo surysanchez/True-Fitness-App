@@ -2,7 +2,8 @@
 <!--   -->
 <!-- List of Recipes  -->
 <br>
-<table class="table-responsive">
+
+<table class="table-responsive{-sm|-md|-lg|-xl|-xxl}">
   <h1>RECIPES</h1>
   <thead>
     <tr>
@@ -44,7 +45,8 @@
 <br>
   <!-- Create new Recipe  -->
   <% if (user) { %>
-    <form id="new-recipe" action="/recipes" method="POST">
+    <!-- <container class="container-fluid"> -->
+    <form id="new-recipe" action="/recipes" method="POST"  >
       <% } %>
       <div style="padding-left: 35px">Name:</div>
       <textarea type="text" name="name" required></textarea>
@@ -65,8 +67,9 @@
         required
       ></textarea>
    
-      <button class="btn"  type="submit">New recipe!</button>
+      <button class="btn btn-primary" type="submit">New recipe!</button>
     </form>
-    
+  <!-- </container> -->
+
     
 <%- include('../partials/footer')%>

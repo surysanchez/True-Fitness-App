@@ -1,31 +1,30 @@
 <%- include('../partials/header')%>
 
 <section id="edit-form">
-    <form action="/workouts/<%=workout._id %>?_method=PUT" method="POST">
-     
-     <label>Name of Workout:</label>
-     <input type="text" name="title" 
-     value="<%= workout.title%>">
-    <br>
-     <label>Level:</label>
-     <select name="level" value="<%= workout.level%>">
-        <option value="Beginner">Beginner(easy)</option>
-        <option value="Intermediate">Intermediate(medium)</option>
-        <option value="Experienced">Experienced(hard)</option>
+  <form action="/workouts/<%=workout._id %>?_method=PUT" method="POST">
+    <div>Name of Workout:</div>
+    <textarea type="text" name="title">    <%= workout.title%>"</textarea>
+    <br />
+    <div>Level:</div>
+    <select name="level" value="<%= workout.level%>">
+      <option value="Beginner">Beginner(easy)</option>
+      <option value="Intermediate">Intermediate(medium)</option>
+      <option value="Experienced">Experienced(hard)</option>
     </select>
-<br>
-<% if (workout.equipment === false) {%>
-<label>Equipment needed?:</label>
-    <input type="checkbox" name="equipment" value="false">
-<br>
-<!-- <label>
+    <br />
+    <% if (workout.equipment === false) {%>
+    <div>Equipment needed?:</div>
+    <input type="checkbox" name="equipment" value="false" />
+    <br />
+    <!-- <label>
     <input type="date" name="completed_on">
 </label> -->
 
-<% } %>
-<br>
-     <button type="submit">Save</button>
-    </form>
-    </section>
+    <% } %>
+    <br />
+
+    <button type="submit">Save</button>
+  </form>
+</section>
 
 <%- include('../partials/footer')%>

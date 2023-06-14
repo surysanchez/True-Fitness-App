@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
 
-<section id="detail-page" class="table-responsive">
-  <div>Name</div>
+<section id="detail-page" class="table-responsive{-sm|-md|-lg|-xl|-xxl}">
+  <div style="font-size: larger; font-family: 'Luckiest Guy', cursive;" >Name:</div>
   <th><%- recipe.name %></th>
-  <div>Ingredients:</div>
+  <div style="font-size: larger; font-family: 'Luckiest Guy', cursive;" >Ingredients:</div>
   <th><%- recipe.ingredients %></th>
-  <div>Instructions:</div>
+  <div style="font-size: larger; font-family: 'Luckiest Guy', cursive;" >Instructions:</div>
   <th><%- recipe.instructions %></th>
 </section>
   <% if (user) { %>
@@ -13,9 +13,9 @@
     id="add-review"
     method="POST"
     action="/recipes/<%= recipe._id %>/reviews">
-    <div>Comments:</div>
-    <input type="text" name="content" required>
-    <div>Rating: </div>
+    <div style="font-size: larger; font-family: 'Luckiest Guy', cursive;">Comments:</div>
+    <textarea type="text" name="content" required ></textarea>
+    <div style="font-size: larger; font-family: 'Luckiest Guy', cursive;">Rating: </div>
     <select name="rating" required>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -23,62 +23,62 @@
       <option value="4">4</option>
       <option value="5">5</option>
     </select>
-    <input type="submit" value="Add Review" />
+    <button  type="submit">Add Review"</button>
 </form>
 <% } %>
+
 <section id="reviews-form">
-    <div>Reviews</div>
-    <% if (recipe.reviews.length) { %>
-    <table>
-      <thead>
-        <tr>
-         
-          <th>User</th>
-          <th>Date</th>
-          <th>Review</th>
-          <th>Rating</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <% let total = 0 %> <% recipe.reviews.forEach(function(r) { %> <% total
-        += r.rating %>
+  <div>Reviews</div>
+  <% if (recipe.reviews.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Review</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <% let total = 0 %> <% recipe.reviews.forEach(function(r) { %> <% total
+      += r.rating %>
+     
+      <tr>
        
-        <tr>
-         
-          <td class="review-user">
-            <img
-              alt="avatar"
-              src="<%= r.userAvatar %>"
-              referrerpolicy="no-referrer"
-            /><%= r.userName %>
+        <td class="review-user">
+          <img
+            alt="avatar"
+            src="<%= r.userAvatar %>"
+            referrerpolicy="no-referrer"
+          /><%= r.userName %>
+        </td>
+        <td><%= r.createdAt.toLocaleDateString() %></td>
+        <td><%= r.content %></td>
+        <td><%= r.rating %></td>
+        <td>
+          <% if (user?._id.equals(r.user)) { %>
+            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+              <button type="submit"><strong>X</strong></button>
+            </form>
+            <%} %>
           </td>
-          <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td><%= r.content %></td>
-          <td><%= r.rating %></td>
-          <td>
-            <% if (user?._id.equals(r.user)) { %>
-              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit"><strong>X</strong></button>
-              </form>
-              <%} %>
-            </td>
-        
-          </td>
-        </tr>
-        <% }); %>
-        <tr>
-          <td colspan="3"></td>
-          <td>
-            <strong><%= (total / recipe.reviews.length).toFixed(1)%></strong>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <% } else { %>
-    <h4>No Reviews Yet</h4>
-    <% } %> 
-  </section>
- 
+      
+        </td>
+      </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+        <td>
+          <strong><%= (total / recipe.reviews.length).toFixed(1)%></strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <% } else { %>
+  <h4>No Reviews Yet</h4>
+  <% } %> 
+</section>
+
+
 <%- include('../partials/footer') %>

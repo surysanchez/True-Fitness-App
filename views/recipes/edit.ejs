@@ -2,15 +2,24 @@
 <section id="edit-form" class="container-fluid">
   <h2>Edit Recipe</h2>
   <form action="/recipes/<%=recipe._id %>?_method=PUT" method="POST">
-    <textarea id="textarea" name="name" rows="1"><%= recipe.name%></textarea>
+    <h1>
+      Name:
+      <textarea id="textarea" name="name" rows="1"><%= recipe.name%></textarea>
+    </h1>
     <br />
-    <textarea name="ingredients" id="textarea" id="myTextarea" rows="1">
+    <h1>
+      Ingredients:
+      <textarea name="ingredients" id="textarea" id="myTextarea" rows="1">
  <%=recipe.ingredients %></textarea
-    >
+      >
+    </h1>
     <br />
-    <textarea name="instructions" id="textarea">
+    <h1>
+      Instructions:
+      <textarea name="instructions" id="textarea">
  <%=recipe.instructions%></textarea
-    >
+      >
+    </h1>
     <script>
       tinymce.init({
         selector: "textarea#textarea",
